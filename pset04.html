@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Sadhana Ramesh">
+
+<title>Problem Set 04</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="pset04_files/libs/clipboard/clipboard.min.js"></script>
+<script src="pset04_files/libs/quarto-html/quarto.js"></script>
+<script src="pset04_files/libs/quarto-html/popper.min.js"></script>
+<script src="pset04_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="pset04_files/libs/quarto-html/anchor.min.js"></script>
+<link href="pset04_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="pset04_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="pset04_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="pset04_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="pset04_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="pset04_files/libs/table1-1.0/table1_defaults.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Problem Set 04</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sadhana Ramesh </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="doing-problem-set-4" class="level1">
+<h1>Doing problem set 4</h1>
+<p>Retrieve this quarto document and place a copy in your bst260 repository.</p>
+<p>You can find a copy at <a href="https://tinyurl.com/260pset04" class="uri">https://tinyurl.com/260pset04</a> and retrieve by curl or wget, or by any other method.</p>
+<p>Call it pset04.qmd.</p>
+<p>You will be editing the document directly to solve exercise 6, so use the document to present your solutions to all the problems. Place your text and executable code, properly marked up, after each query for each exercise. You might use a horizontal rule to help discriminate your material from the text of the problem set.</p>
+<p>Place your name as the author of the solutions in the yaml header above.</p>
+<p>When you have finished editing this document with your solutions place it and your compiled html in the solutions folder of your bst260 repository.</p>
+</section>
+<section id="descriptive-statistics-for-the-nhanes-dataset" class="level1">
+<h1>Descriptive statistics for the NHANES dataset</h1>
+<p>The NHANES package on CRAN includes a dataset called “NHANES” that addresses issues of sampling to permit direct statistical analyses.</p>
+<p>Example analyses of the weighted survey data assembled by the National Center for Health Statistics are available. An example is <a href="https://wwwn.cdc.gov/nchs/data/Tutorials/Code/DB303_R.r">here</a>; also of interest is the nhanesA package, which leverages a containerized relational database. A publication is <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11020206/">available</a>.</p>
+<p>Here we use the ‘resampled’ version for simplicity.</p>
+<section id="software-setup" class="level2">
+<h2 class="anchored" data-anchor-id="software-setup">Software setup</h2>
+<p>Let’s get the necessary software. Use <code>install.packages</code> for any packages you are missing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(NHANES)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'table1' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nh11 <span class="ot">=</span> NHANES <span class="sc">|&gt;</span> <span class="fu">filter</span>(SurveyYr <span class="sc">==</span> <span class="st">"2011_12"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="table-1" class="level2">
+<h2 class="anchored" data-anchor-id="table-1">“Table 1”</h2>
+<p>The <code>table1</code> package/function provides a powerful approach to producing summary statistics. We will focus on the measured quantity “diastolic blood pressure” as obtained by averaging several repeat measures for each participant visit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span>BPDiaAve<span class="sc">|</span>Race3, <span class="at">data=</span>nh11 <span class="sc">|&gt;</span> <span class="fu">filter</span>(Sex<span class="sc">==</span><span class="st">"female"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+<div class="Rtable1">
+<table class="Rtable1 table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Basic DBP statistics for females</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Asian<br>
+<span class="stratn">(N=147)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Black<br>
+<span class="stratn">(N=292)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Hispanic<br>
+<span class="stratn">(N=182)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Mexican<br>
+<span class="stratn">(N=213)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">White<br>
+<span class="stratn">(N=1588)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Other<br>
+<span class="stratn">(N=73)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=2495)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow"><span class="varlabel">BPDiaAve</span></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>66.5 (13.1)</td>
+<td>67.4 (15.4)</td>
+<td>65.7 (13.8)</td>
+<td>63.2 (16.2)</td>
+<td>68.2 (12.9)</td>
+<td>63.1 (12.4)</td>
+<td>67.3 (13.6)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>67.0 [0, 98.0]</td>
+<td>69.0 [0, 103]</td>
+<td>67.0 [0, 95.0]</td>
+<td>64.0 [0, 94.0]</td>
+<td>69.0 [0, 108]</td>
+<td>61.0 [34.0, 88.0]</td>
+<td>69.0 [0, 108]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">25 (17.0%)</td>
+<td class="lastrow">51 (17.5%)</td>
+<td class="lastrow">37 (20.3%)</td>
+<td class="lastrow">53 (24.9%)</td>
+<td class="lastrow">171 (10.8%)</td>
+<td class="lastrow">20 (27.4%)</td>
+<td class="lastrow">357 (14.3%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span>BPDiaAve<span class="sc">|</span>Race3, <span class="at">data=</span>nh11 <span class="sc">|&gt;</span> <span class="fu">filter</span>(Sex<span class="sc">==</span><span class="st">"male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+<div class="Rtable1">
+<table class="Rtable1 table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Basic DBP statistics for males</caption>
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Asian<br>
+<span class="stratn">(N=141)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Black<br>
+<span class="stratn">(N=297)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Hispanic<br>
+<span class="stratn">(N=168)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Mexican<br>
+<span class="stratn">(N=267)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">White<br>
+<span class="stratn">(N=1547)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Other<br>
+<span class="stratn">(N=85)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=2505)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow"><span class="varlabel">BPDiaAve</span></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>72.1 (14.2)</td>
+<td>67.1 (15.9)</td>
+<td>68.4 (15.0)</td>
+<td>64.0 (17.5)</td>
+<td>70.5 (14.6)</td>
+<td>65.8 (11.5)</td>
+<td>69.3 (15.2)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>73.0 [0, 102]</td>
+<td>68.5 [0, 109]</td>
+<td>69.0 [0, 90.0]</td>
+<td>66.0 [0, 114]</td>
+<td>72.0 [0, 116]</td>
+<td>68.0 [37.0, 87.0]</td>
+<td>71.0 [0, 116]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">21 (14.9%)</td>
+<td class="lastrow">53 (17.8%)</td>
+<td class="lastrow">40 (23.8%)</td>
+<td class="lastrow">46 (17.2%)</td>
+<td class="lastrow">186 (12.0%)</td>
+<td class="lastrow">16 (18.8%)</td>
+<td class="lastrow">362 (14.5%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="exercise-1." class="level3">
+<h3 class="anchored" data-anchor-id="exercise-1.">Exercise 1.</h3>
+<p>Write and run the <em>dplyr</em> code to reproduce the means, standard deviations and number of missing values for BPDiaAve in each table. The result should have column names “Sex”, “Race3”, “mean”, “sd”, “nmiss”. Records for females should come first and rows should be sorted by race within gender.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>nh11 <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex, Race3) <span class="sc">|&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(BPDiaAve, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(BPDiaAve, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">nmiss =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(BPDiaAve))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Sex), Race3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+# Groups:   Sex [2]
+   Sex    Race3     mean    sd nmiss
+   &lt;fct&gt;  &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+ 1 male   Asian     72.1  14.2    21
+ 2 male   Black     67.1  15.9    53
+ 3 male   Hispanic  68.4  15.0    40
+ 4 male   Mexican   64.0  17.5    46
+ 5 male   White     70.5  14.6   186
+ 6 male   Other     65.8  11.5    16
+ 7 female Asian     66.5  13.1    25
+ 8 female Black     67.4  15.4    51
+ 9 female Hispanic  65.7  13.8    37
+10 female Mexican   63.2  16.2    53
+11 female White     68.2  12.9   171
+12 female Other     63.1  12.4    20</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-2." class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2.">Exercise 2.</h3>
+<p>Something very implausible is present in the data. Describe it and reproduce the table1 results and dplyr summaries after “fixing” it.</p>
+<p>There is 0 values for the blood pressure which is not possible.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a fixed version of the data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>nh11_fixed <span class="ot">&lt;-</span> nh11 <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">BPDiaAve =</span> <span class="fu">ifelse</span>(BPDiaAve <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">NA</span>, BPDiaAve))</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproduce table1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span>BPDiaAve <span class="sc">|</span> Race3,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> nh11_fixed <span class="sc">|&gt;</span> <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">"female"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<div class="Rtable1">
+<table class="Rtable1 table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Asian<br>
+<span class="stratn">(N=147)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Black<br>
+<span class="stratn">(N=292)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Hispanic<br>
+<span class="stratn">(N=182)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Mexican<br>
+<span class="stratn">(N=213)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">White<br>
+<span class="stratn">(N=1588)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Other<br>
+<span class="stratn">(N=73)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=2495)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow"><span class="varlabel">BPDiaAve</span></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>67.1 (11.7)</td>
+<td>68.6 (12.8)</td>
+<td>66.1 (12.7)</td>
+<td>63.6 (15.4)</td>
+<td>68.6 (11.6)</td>
+<td>63.1 (12.4)</td>
+<td>67.9 (12.3)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>67.0 [23.0, 98.0]</td>
+<td>69.0 [15.0, 103]</td>
+<td>67.0 [31.0, 95.0]</td>
+<td>64.0 [12.0, 94.0]</td>
+<td>69.0 [14.0, 108]</td>
+<td>61.0 [34.0, 88.0]</td>
+<td>69.0 [12.0, 108]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">26 (17.7%)</td>
+<td class="lastrow">55 (18.8%)</td>
+<td class="lastrow">38 (20.9%)</td>
+<td class="lastrow">54 (25.4%)</td>
+<td class="lastrow">181 (11.4%)</td>
+<td class="lastrow">20 (27.4%)</td>
+<td class="lastrow">374 (15.0%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table1</span>(<span class="sc">~</span>BPDiaAve <span class="sc">|</span> Race3,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> nh11_fixed <span class="sc">|&gt;</span> <span class="fu">filter</span>(Sex <span class="sc">==</span> <span class="st">"male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<div class="Rtable1">
+<table class="Rtable1 table table-sm table-striped small" data-quarto-postprocess="true">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th class="rowlabel firstrow lastrow" data-quarto-table-cell-role="th"></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Asian<br>
+<span class="stratn">(N=141)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Black<br>
+<span class="stratn">(N=297)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Hispanic<br>
+<span class="stratn">(N=168)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Mexican<br>
+<span class="stratn">(N=267)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">White<br>
+<span class="stratn">(N=1547)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Other<br>
+<span class="stratn">(N=85)</span></span></th>
+<th class="firstrow lastrow" data-quarto-table-cell-role="th"><span class="stratlabel">Overall<br>
+<span class="stratn">(N=2505)</span></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowlabel firstrow"><span class="varlabel">BPDiaAve</span></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+<td class="firstrow"></td>
+</tr>
+<tr class="even">
+<td class="rowlabel">Mean (SD)</td>
+<td>72.7 (12.6)</td>
+<td>67.7 (14.7)</td>
+<td>68.9 (13.7)</td>
+<td>64.8 (15.9)</td>
+<td>71.2 (12.9)</td>
+<td>65.8 (11.5)</td>
+<td>69.9 (13.7)</td>
+</tr>
+<tr class="odd">
+<td class="rowlabel">Median [Min, Max]</td>
+<td>73.0 [37.0, 102]</td>
+<td>69.0 [16.0, 109]</td>
+<td>69.0 [16.0, 90.0]</td>
+<td>66.0 [19.0, 114]</td>
+<td>72.0 [16.0, 116]</td>
+<td>68.0 [37.0, 87.0]</td>
+<td>71.0 [16.0, 116]</td>
+</tr>
+<tr class="even">
+<td class="rowlabel lastrow">Missing</td>
+<td class="lastrow">22 (15.6%)</td>
+<td class="lastrow">55 (18.5%)</td>
+<td class="lastrow">41 (24.4%)</td>
+<td class="lastrow">49 (18.4%)</td>
+<td class="lastrow">199 (12.9%)</td>
+<td class="lastrow">16 (18.8%)</td>
+<td class="lastrow">382 (15.2%)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reproduce dplyr summaries</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>nh11_fixed <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Sex, Race3) <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(BPDiaAve, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(BPDiaAve, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">nmiss =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(BPDiaAve))</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Sex), Race3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'Sex'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+# Groups:   Sex [2]
+   Sex    Race3     mean    sd nmiss
+   &lt;fct&gt;  &lt;fct&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+ 1 male   Asian     72.7  12.6    22
+ 2 male   Black     67.7  14.7    55
+ 3 male   Hispanic  68.9  13.7    41
+ 4 male   Mexican   64.8  15.9    49
+ 5 male   White     71.2  12.9   199
+ 6 male   Other     65.8  11.5    16
+ 7 female Asian     67.1  11.7    26
+ 8 female Black     68.6  12.8    55
+ 9 female Hispanic  66.1  12.7    38
+10 female Mexican   63.6  15.4    54
+11 female White     68.6  11.6   181
+12 female Other     63.1  12.4    20</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-3-compact-estimation-procedures-for-averages" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-3-compact-estimation-procedures-for-averages">Exercise 3: Compact estimation procedures for averages</h3>
+<p>R’s built-in modeling functions can save a lot of filtering and summarization activity. To estimate average diastolic blood pressures for combinations of race and gender, we can use</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">=</span> <span class="fu">lm</span>(BPDiaAve<span class="sc">~</span>Race3<span class="sc">*</span>Sex<span class="dv">-1</span>, <span class="at">data=</span>nh11, <span class="at">na.action=</span>na.omit)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>lm1<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Race3Asian            Race3Black         Race3Hispanic 
+            66.532787             67.448133             65.682759 
+         Race3Mexican            Race3White            Race3Other 
+            63.175000             68.153846             63.056604 
+              Sexmale    Race3Black:Sexmale Race3Hispanic:Sexmale 
+             5.608880             -5.913570             -2.916638 
+ Race3Mexican:Sexmale    Race3White:Sexmale    Race3Other:Sexmale 
+            -4.833654             -3.217539             -2.839397 </code></pre>
+</div>
+</div>
+<p>The syntax <code>y ~ a * b - 1</code> for numerical <code>y</code> and factor variables <code>a</code> and <code>b</code> is described as fitting “first-order interactions”. Subgroups of individuals are formed for every combination of factor levels, and the mean value of <code>y</code> is computed for each subgroup. The <code>-1</code> suppresses an intercept term.</p>
+<p>R uses a peculiar naming convention for the estimated parameters. <code>Race3Asian</code> is used to show that the factor level for Race3 is Asian. <code>Sexmale</code> has a coefficient. This indicates to us that the ‘reference’ sex is female. Finally colon is used for combinations of factor values. We can recover the mean value for Black males by adding the coefficients for Race3Black, Sexmale, and Race3Black:Sexmale.</p>
+<p>Create the compact estimates using the version of the data “repaired” in Exercise 2 and verify that the estimates from lm recover the dplyr summaries.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit model using repaired data</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(BPDiaAve <span class="sc">~</span> Race3 <span class="sc">*</span> Sex <span class="sc">-</span> <span class="dv">1</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">data =</span> nh11_fixed,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">na.action =</span> na.omit)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>lm1<span class="sc">$</span>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Race3Asian            Race3Black         Race3Hispanic 
+            67.082645             68.586498             66.138889 
+         Race3Mexican            Race3White            Race3Other 
+            63.572327             68.638237             63.056604 
+              Sexmale    Race3Black:Sexmale Race3Hispanic:Sexmale 
+             5.665255             -6.553405             -2.890758 
+ Race3Mexican:Sexmale    Race3White:Sexmale    Race3Other:Sexmale 
+            -4.407306             -3.077973             -2.895771 </code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-4-visualizing-dbp-distributions-by-age-and-race" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-4-visualizing-dbp-distributions-by-age-and-race">Exercise 4: Visualizing DBP distributions by age and race</h3>
+<p>Here is classic R list manipulation and plotting code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>),<span class="at">las=</span><span class="dv">2</span>,<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ss <span class="ot">=</span> <span class="fu">split</span>(nh11, nh11<span class="sc">$</span>Race3)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>tt <span class="ot">=</span> <span class="fu">lapply</span>(<span class="fu">names</span>(ss), <span class="cf">function</span>(x) {d <span class="ot">=</span> ss[[x]]; </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">boxplot</span>(<span class="fu">split</span>(d<span class="sc">$</span>BPDiaAve, d<span class="sc">$</span>AgeDecade), <span class="at">main=</span>x, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">120</span>))})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset04_files/figure-html/lkmmm-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Write and run the ggplot2 code to produce a similar display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(nh11, <span class="fu">aes</span>(<span class="at">x =</span> AgeDecade, <span class="at">y =</span> BPDiaAve)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Race3, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">120</span>)) <span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Age Decade"</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Diastolic Blood Pressure"</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 719 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset04_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-5-do-ethnic-groups-have-comparable-age-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-5-do-ethnic-groups-have-comparable-age-distributions">Exercise 5: Do ethnic groups have comparable age distributions?</h3>
+<p>Use the compact estimation procedure with Age as the “y” variable. What do you see as the most prominent indications of heterogeneity in age distributions across the different group combinations?</p>
+<p>Describe how to form observed and expected counts in the cells of the table</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(nh11, <span class="fu">table</span>(AgeDecade, Race3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Race3
+AgeDecade Asian Black Hispanic Mexican White Other
+    0-9      41    97       71     108   354    38
+    10-19    38    95       45     101   394    31
+    20-29    38    84       63      83   376    28
+    30-39    55    74       42      67   377    16
+    40-49    38    69       48      52   450    13
+    50-59    37    91       34      43   471    14
+    60-69    22    41       23      16   354    10
+    70+      12    30       15       8   210     6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>age_race <span class="ot">&lt;-</span> <span class="fu">with</span>(nh11, <span class="fu">table</span>(AgeDecade, Race3))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed counts</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>age_race</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Race3
+AgeDecade Asian Black Hispanic Mexican White Other
+    0-9      41    97       71     108   354    38
+    10-19    38    95       45     101   394    31
+    20-29    38    84       63      83   376    28
+    30-39    55    74       42      67   377    16
+    40-49    38    69       48      52   450    13
+    50-59    37    91       34      43   471    14
+    60-69    22    41       23      16   354    10
+    70+      12    30       15       8   210     6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected counts</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(age_race)<span class="sc">$</span>expected</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Race3
+AgeDecade    Asian    Black Hispanic  Mexican    White     Other
+    0-9   41.30811 85.40929 50.12834 70.26788 438.9538 22.932615
+    10-19 41.01679 84.80697 49.77483 69.77234 435.8582 22.770889
+    20-29 39.15239 80.95210 47.51234 66.60087 416.0464 21.735849
+    30-39 36.76363 76.01306 44.61352 62.53742 390.6627 20.409704
+    40-49 39.03587 80.71118 47.37093 66.40265 414.8082 21.671159
+    50-59 40.20112 83.12046 48.78499 68.38482 427.1905 22.318059
+    60-69 27.15032 56.13643 32.94754 46.18453 288.5084 15.072776
+    70+   16.37176 33.85051 19.86751 27.84947 173.9718  9.088949</code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-6-cards-to-dice" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-6-cards-to-dice">Exercise 6: Cards to Dice</h3>
+<p>Modify all the quarto and R following to replace draws from a deck of shuffled cards with tosses of a single six-faced die.</p>
+<p>As an example, you might start with code like</p>
+<pre><code>die = c(1,2,3,4,5,6)
+roll = function(die) sample(die,size=1)
+set.seed(1234)
+table(replicate(100, roll(die)))</code></pre>
+<p>to model 100 tosses of a fair die.</p>
+</section>
+</section>
+<section id="modeling-cards-and-shuffled-decks" class="level2">
+<h2 class="anchored" data-anchor-id="modeling-cards-and-shuffled-decks">Modeling cards and shuffled decks</h2>
+<section id="decks-as-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="decks-as-vectors">Decks as vectors</h3>
+<p>We followed online code to produce</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>suits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Spades"</span>, <span class="st">"Hearts"</span>, <span class="st">"Diamonds"</span>, <span class="st">"Clubs"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ranks <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ace"</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>, <span class="st">"Jack"</span>, <span class="st">"Queen"</span>, <span class="st">"King"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine ranks and suits to make 52 unique cards</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>deck <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="fu">rep</span>(ranks, <span class="dv">4</span>), <span class="fu">rep</span>(suits, <span class="at">each =</span> <span class="dv">13</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>A deck is a vector with 52 elements. This vector “models” a deck of playing cards.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>die <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>roll <span class="ot">=</span> <span class="cf">function</span>(die) <span class="fu">sample</span>(die,<span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(<span class="fu">replicate</span>(<span class="dv">100</span>, <span class="fu">roll</span>(die)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 1  2  3  4  5  6 
+15 14 14 18 14 25 </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="draws-as-samples" class="level2">
+<h2 class="anchored" data-anchor-id="draws-as-samples">Draws as samples</h2>
+<p>With R’s <code>sample</code> function, we can model shuffling. We use <code>set.seed</code> to obtain a reproducible random number generation state.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>top_card <span class="ot">=</span> <span class="cf">function</span>(x) { </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">stopifnot</span>(<span class="fu">length</span>(x)<span class="sc">==</span><span class="dv">52</span>, <span class="fu">is.atomic</span>(x))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sample</span>(x, <span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>drs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(deck))</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(drs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>drs
+   10 Clubs 10 Diamonds   10 Hearts   10 Spades     2 Clubs  2 Diamonds 
+         39          36          44          30          43          45 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">table</span>(drs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38.46154</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38.46154</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>die <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>roll <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">length</span>(x)<span class="sc">==</span><span class="dv">6</span>, <span class="fu">is.atomic</span>(x))</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(x, <span class="at">size=</span><span class="dv">1</span>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>drs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">roll</span>(die))</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(drs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>drs
+  1   2   3   4   5   6 
+316 304 353 324 336 367 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">table</span>(drs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 333.3333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 333.3333</code></pre>
+</div>
+</div>
+</section>
+<section id="a-model-for-fairness" class="level2">
+<h2 class="anchored" data-anchor-id="a-model-for-fairness">A model for fairness</h2>
+<section id="intuitions" class="level3">
+<h3 class="anchored" data-anchor-id="intuitions">Intuitions</h3>
+<p>For a fair deck with thorough shuffling and replacement, we have an intuition that each card type has the same chance of being drawn as the top card.</p>
+<p>In 2000 draws, the <em>expected</em> number of appearances of “2 Hearts” is 2000/52, and that is the same for all card types.</p>
+</section>
+<section id="formalism" class="level3">
+<h3 class="anchored" data-anchor-id="formalism">Formalism</h3>
+<p>Formally, we can abstract from the actual names of the cards and represent the shuffling/drawing procedure in this way:</p>
+<p>Let <span class="math inline">\(i = 1, \ldots, 52\)</span> denote card types</p>
+<p>Let <span class="math inline">\(j = 1, \ldots, 2000\)</span> denote shuffle/draw/replace events</p>
+<p>Define</p>
+<p><span class="math display">\[
+C_{ij} =
+\begin{cases}
+  1 &amp; \text{if draw } j \text{ yields card type } i, \\
+  0 &amp; \text{otherwise.}
+\end{cases}
+\]</span></p>
+<p>Now define <span class="math inline">\(X_i = \sum_j C_{ij}\)</span>. Our statement above about the intuitive expectation on the number of appearances of any given card type will be written <span class="math display">\[
+EX_i = 2000/52 \text{ for all } i = 1,\ldots, 52.
+\]</span></p>
+<p>This is equivalent to the following formulation. Let <span class="math inline">\(p_i, i=1, \ldots, 52\)</span> denote the <em>probability</em> (not yet defined in any formal way) that our shuffle/draw procedure yields card of type <span class="math inline">\(i\)</span>. Then <span class="math inline">\(EX_i = 2000 p_i\)</span> for all <span class="math inline">\(i\)</span>. For the general case of <span class="math inline">\(n\)</span> draws, <span class="math inline">\(EX_i = n p_i\)</span>.</p>
+</section>
+</section>
+<section id="measuring-departure-from-fairness" class="level2">
+<h2 class="anchored" data-anchor-id="measuring-departure-from-fairness">Measuring departure from fairness</h2>
+<p>A well-established metric for assessing departure from fairness is called “chi-squared”. We will use the symbol <span class="math inline">\(D\)</span> to represent this measure. Large values of <span class="math inline">\(D\)</span> can be indicative of departure of the observed frequencies from the expected values.</p>
+<p><span class="math display">\[
+D = \sum_{i=1}^{52} \frac{(X_i - EX_i)^2}{EX_i}
+\]</span></p>
+<p>We’ll implement <span class="math inline">\(D\)</span> as <code>mystat</code> and show that it is equivalent to a quantity computed in R with <code>chisq.test</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>mystat <span class="ot">=</span> <span class="cf">function</span>(dat, expected) <span class="fu">sum</span>((<span class="fu">table</span>(dat)<span class="sc">-</span>expected)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>expected)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ExpectedCount <span class="ot">=</span> <span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>((<span class="fu">table</span>(drs)<span class="sc">-</span>ExpectedCount)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span>ExpectedCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13636.26</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(drs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  table(drs)
+X-squared = 8.326, df = 5, p-value = 0.1392</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(drs, ExpectedCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13636.26</code></pre>
+</div>
+</div>
+<p>Note that <code>chisq.test</code> reports the same statistic as <code>mystat</code>, but includes values for <code>df</code> (degrees of freedom) and <code>p-value</code>. “Degrees of freedom” refers here to the fact that we have a fixed number of count categories (52 card types), and if 51 are known, the value for the 52nd can be deduced – it is “unfree”.</p>
+<p>The p-value is a quantity that, when small, can be indicative of a departure from the expected outcome of an experiment. We will return to that concept at a later date.</p>
+</section>
+<section id="replicating-our-test-of-fairness-many-times" class="level2">
+<h2 class="anchored" data-anchor-id="replicating-our-test-of-fairness-many-times">Replicating our test of fairness many times</h2>
+<p>Any given collection of shuffle/draw events will yield a value of <span class="math inline">\(D\)</span>. Different series will yield different values of <span class="math inline">\(D\)</span>, but when the deck is fair, the variation in <span class="math inline">\(D\)</span> is prescribed by the mathematics of probability.</p>
+<p>We will make a histogram of 100 replicates of 2000 draws to exhibit variation in <span class="math inline">\(D\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>predist <span class="ot">=</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cf">function</span>(x) <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(deck)))</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">=</span> <span class="fu">sapply</span>(predist, <span class="cf">function</span>(x)<span class="fu">mystat</span>(x, <span class="at">expected=</span><span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span>))</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dist, <span class="at">prob=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset04_files/figure-html/domore-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>With 1000 replicates, we get a more pleasing display.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>predist <span class="ot">=</span> <span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>, <span class="cf">function</span>(x) <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(deck)))</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>dist <span class="ot">=</span> <span class="fu">sapply</span>(predist, <span class="cf">function</span>(x)<span class="fu">mystat</span>(x, <span class="at">expected=</span><span class="dv">2000</span><span class="sc">/</span><span class="dv">52</span>))</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dist, <span class="at">probability=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset04_files/figure-html/domore2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The form of this histogram (drawn in R with the <code>probability</code> argument set to TRUE) can be approximated by the density of the chi-squared distribution with 51 degrees of freedom.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dist, <span class="at">probability=</span><span class="cn">TRUE</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="fu">dchisq</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">51</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pset04_files/figure-html/lkdens-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The “51” fixes the degrees of freedom of the model for which the density will be drawn.</p>
+</section>
+<section id="interpret" class="level2">
+<h2 class="anchored" data-anchor-id="interpret">Interpret</h2>
+<p>What’s the difference between these two runs?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>baddeck <span class="ot">=</span> deck</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>baddeck[<span class="dv">1</span>] <span class="ot">=</span> baddeck[<span class="dv">52</span>]</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(baddeck))</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 92.08246</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>baddeck[<span class="dv">2</span>] <span class="ot">=</span> baddeck[<span class="dv">51</span>]</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>newdrs <span class="ot">=</span> <span class="fu">replicate</span>(<span class="dv">2000</span>, <span class="fu">top_card</span>(baddeck))</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mystat</span>(newdrs, ExpectedCount)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 146.4929</code></pre>
+</div>
+</div>
+<p>The first run modifies one card in the deck, causing the observed frequencies to differ from the frequencies expected for a fair deck. The second run does not reset <code>baddeck</code>, so it adds another modification on top of the first one. This makes the deck even less fair, which creates larger differences between the observed and expected counts. As a result, the chi-square statistic increases from 92.08 to 146.5. A larger chi-square statistic indicates a greater departure from the expected distribution for a fair deck.</p>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
